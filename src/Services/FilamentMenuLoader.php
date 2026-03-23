@@ -42,7 +42,7 @@ class FilamentMenuLoader
                         ->icon($menu->icon)
                         ->badge($menu->badge ? $menu->badge[app()->getLocale()] : null, $menu->badge_color)
                         ->url($menu->is_route ? route($menu->route) : $menu->url);
-                }else{
+                } else {
                     continue;
                 }
             } else {
