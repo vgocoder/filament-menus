@@ -1,10 +1,11 @@
 <?php
 
-namespace TomatoPHP\FilamentMenus\Models;
+namespace TomatoPHP\FilamentMenus\Tests\Models;
 
 use Filament\Resources\Concerns\Translatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use TomatoPHP\FilamentMenus\Tests\Database\Factories\MenuItemFactory;
 
 class MenuItem extends Model
 {
@@ -40,7 +41,6 @@ class MenuItem extends Model
     protected $fillable = [
         'menu_id',
         'title',
-        'group',
         'icon',
         'badge_color',
         'has_badge',
@@ -59,5 +59,10 @@ class MenuItem extends Model
     public function menu()
     {
         return $this->belongsTo(Menu::class, 'menu_id', 'id');
+    }
+
+    protected static function newFactory(): MenuItemFactory
+    {
+        return MenuItemFactory::new();
     }
 }
